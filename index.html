@@ -37,7 +37,7 @@
         </div>
 
 
-        <div class="booking-form">
+        <div id="booking-area" class="booking-form">
             <h3>Explore By Bus</h3>
 
             <div class="inputs">
@@ -70,8 +70,8 @@
                     <h2  class="inp-style inp-width" id="currentFirstClassValue" >0</span>
                 </div>
                 <div class="plus-minus-btn">
-                    <button id="firstPlus" class="btn btn-success btn-number"> <span>+</span></button>
-                    <button  id="firstMinus" class="btn btn-danger btn-number"> <span>-</span></button>
+                    <button id="f_SeatPlus" class="btn btn-success btn-number"> <span>+</span></button>
+                    <button  id="f_SeatMinus" class="btn btn-danger btn-number"> <span>-</span></button>
                 </div>
             </div>
 
@@ -82,8 +82,8 @@
                         <h2  class="inp-style inp-width" id="currentEconomyValue" >0</span>
                     </div>
                     <div class="plus-minus-btn">
-                        <button id="ecoPlus" class="btn btn-success btn-number"> <span>+</span></button>
-                        <button  id="ecoMinus" class="btn btn-danger btn-number"> <span>-</span></button>
+                        <button id="eco_SeatPlus" class="btn btn-success btn-number"> <span>+</span></button>
+                        <button  id="eco_SeatMinus" class="btn btn-danger btn-number"> <span>-</span></button>
                     </div>
                 </div>
 
@@ -95,7 +95,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="currentSubTotal">500</span></p>
+                        <p>$ <span id="currentSubTotal">0</span></p>
                     </div>
                 </div>
 
@@ -118,8 +118,32 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="submit" class="btn-style">Book Now</button>
         </div>
+
+        <div id="ticket-area">
+         
+            <div class="row p-5">
+                <div class="col-md-12">
+                  <div class="card">
+                    <h1 class="text-center">Your Ticket</h1>
+                   <ul>
+                       <li>Departure From:<span id="departFromPrint"></span></li>
+                       <li>Selected Destination:<span  id="destinationToPrint"></span></li>
+                       <li>Journey Date:<span  id="departDatePrint"></span></li>
+                       <li>Return Date:<span id="returnDatePrint"></span></li>
+                       <li>Total cost:<span  id="totalPrint"></span></li>
+
+                   </ul>
+                </div>
+                </div>
+              
+    
+            </div>
+              
+        </div>
+
+
     </main>
 
     <!--Thank You-->

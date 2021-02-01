@@ -126,3 +126,37 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+#ticket-area{
+    margin-top: 40px;
+    padding: 20px 20px;
+
+    width: 600px;
+    margin-left: 25%;
+    display: none;
+}
+
+.card{
+    margin: 0 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px grey;
+    color: black;
+}
+.card h1{
+    
+    margin: 0 20px;
+    font-size: 25px;
+    padding: 20px 20px;
+}
+.card ul{
+    color: black;
+    margin: 0 20px;
+
+    padding: 20px 20px;
+}
+.card li span{
+   margin-left: 20px;
+   text-align: center;
+   color: tomato;
+}

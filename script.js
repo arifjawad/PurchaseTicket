@@ -1,82 +1,82 @@
-const firstPlus = document.getElementById("firstPlus");
 
-firstPlus.addEventListener("click", ifClickedFirstPlus());
+const f_SeatPlus = document.getElementById("f_SeatPlus");
+f_SeatPlus.addEventListener("click", ifClickedFirstClassPlus);
 
-function ifClickedFirstPlus(currentValue){
+const f_SeatMinus = document.getElementById("f_SeatMinus");
+f_SeatMinus.addEventListener("click", ifClickedFirstClassMinus);
+
+function ifClickedFirstClassPlus(){
     const currentValue =document.getElementById("currentFirstClassValue").innerText;
-    const updateNumber=plusClicked(currentValue);
+    let updateNumber= plusClicked(currentValue);
     document.getElementById("currentFirstClassValue").innerText=updateNumber;
-  
-    getValue(updateNumber);
-}
-
-const firstMinus = document.getElementById("firstMinus");
-firstMinus.addEventListener("click", ifClickedFirstMinus());
-
-function ifClickedFirstMinus(currentValue){
-    const currentValue =document.getElementById("currentFirstClassValue").innerText;
-    const updateNumber=minusClicked(currentValue);
-    if(updateNumber<0){
-        document.getElementById("currentFirstClassValue").innerText=0;
-     
-        getValue(updateNumber,0);
-    }else{
-    document.getElementById("currentFirstClassValue").innerText=updateNumber;
-    getValue(updateNumber,0);
+    subTotal();
    
 }
+
+function ifClickedFirstClassMinus(){
+    const currentValue =document.getElementById("currentFirstClassValue").innerText;
+    let updateNumber=minusClicked(currentValue);
+    if(updateNumber<0){
+        updateNumber=0;
+        document.getElementById("currentFirstClassValue").innerText=updateNumber;
+        
+    }else{
+    document.getElementById("currentFirstClassValue").innerText=updateNumber;
+  
+}  subTotal();
 }
 
-const ecoPlus = document.getElementById("ecoPlus");
-ecoPlus.addEventListener("click", ifClickedEcoPlus());
+const eco_SeatPlus = document.getElementById("eco_SeatPlus");
+eco_SeatPlus.addEventListener("click", ifClickedEcoPlus);
 
-function ifClickedEcoPlus(currentValue){
+function ifClickedEcoPlus(){
     const currentValue =document.getElementById("currentEconomyValue").innerText;
-    const updateNumber=plusClicked(currentValue);
- 
+    let updateNumber= plusClicked(currentValue);
     document.getElementById("currentEconomyValue").innerText=updateNumber;
-    getValue(0,updateNumber);
-}
-const ecoMinus = document.getElementById("ecoMinus");
-ecoMinus.addEventListener("click", ifClickedEcoMinus());
+    subTotal();
 
-function ifClickedEcoMinus(currentValue){
-    const currentValue =document.getElementById("currentEconomyValue").innerText;
-    const updateNumber=minusClicked(currentValue);
- 
-    document.getElementById("currentEconomyValue").innerText=updateNumber;
-    getValue(0,updateNumber);
 }
+
+const eco_SeatMinus = document.getElementById("eco_SeatMinus");
+eco_SeatMinus.addEventListener("click", ifClickedEcoMinus);
+
+function ifClickedEcoMinus(){
+    const currentValue =document.getElementById("currentEconomyValue").innerText;
+    let updateNumber=minusClicked(currentValue);
+     if(updateNumber<0){
+        updateNumber=0;
+        document.getElementById("currentEconomyValue").innerText=updateNumber;
+      
+    }else{
+    document.getElementById("currentEconomyValue").innerText=updateNumber;
+ 
+}  subTotal();
+}
+
 function plusClicked(currentValue){
  
     const currentNumber = parseInt(currentValue);
-    const updateNumber = currentNumber + 1;
+    let updateNumber = currentNumber + 1;
     return updateNumber;
  
 }
 function minusClicked(currentValue){
  
     const currentNumber = parseInt(currentValue);
-    const updateNumber = currentNumber - 1;
+    let updateNumber = currentNumber - 1;
     return updateNumber;
  
 }
 
-function getValue(count1,count2){
- const amount1=150;
- const amount2=100;
- 
- const totalAmount=(amount1*count1)+(amount2*count2);
-   
-subTotal(totalAmount);
-}
 
-//subtotal
-function subTotal(amount) {
-    const currentSubTotal=amount;
+function subTotal() {
+    const currentFirstValue =document.getElementById("currentFirstClassValue").innerText;
+    let firstClassTotal = parseInt(currentFirstValue);
+    const currentEcoValue =document.getElementById("currentEconomyValue").innerText;
+    let ecoClassTotal = parseInt(currentEcoValue);
+    let currentSubTotal=(firstClassTotal*150)+(ecoClassTotal*100);
     document.getElementById("currentSubTotal").innerText=currentSubTotal;
     vatCalculate(currentSubTotal);
-    return currentSubTotal;
 }
 
 
@@ -96,3 +96,26 @@ function total(subTotal,charge) {
 }
 
 
+const bookingBtn=document.getElementById("submit");
+bookingBtn.addEventListener('click',function(){
+    const bookingArea =document.getElementById("booking-area");
+    const ticketArea =document.getElementById("ticket-area");
+    printTicket();
+    bookingArea.style.display="none";
+    ticketArea.style.display="block";
+
+});
+
+function printTicket(){
+    let departFrom =document.getElementById("departFrom").value;
+    const destinationTo =document.getElementById("destinationTo").value;
+    const departDate =document.getElementById("departDate").value;
+    const returnDate =document.getElementById("returnDate").value;
+    const total =document.getElementById("total").innerText;
+   
+    document.getElementById("departFromPrint").innerText=departFrom;
+    document.getElementById("destinationToPrint").innerText=destinationTo;
+    document.getElementById("departDatePrint").innerText=departDate;
+    document.getElementById("returnDatePrint").innerText=returnDate;
+    document.getElementById("totalPrint").innerText=total;
+}
